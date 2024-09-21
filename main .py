@@ -7,7 +7,7 @@ import requests
 
 rcognizer = sr.Recognizer()
 engine = pyttsx3.init()
-newsapi = "b3ec0c739b974b5a91ec97ae27520303"
+#newsapi = ""
 
 def speak(text):
     engine.say(text)
@@ -27,15 +27,15 @@ def processCommand(c):
         song = c.lower().split(" ")[1]
         link = musiclibrary.music[song]
         webbrowser.open(link)
-    elif "news" in c.lower():
+    '''elif "news" in c.lower():
         r = requests.get(f"https://newsapi.org/v2/top-headlines?country=in&apiKey={newsapi}")  
         if r.status_code == 200:
-            data = r.json()
+            data = r.json()   
         # Extract and print the headlines
         articles = data.get('articles', [])
         for article in articles:
             speak(article['title'])
-            print(article['title'])
+            print(article['title'])'''
 
 if __name__ == "__main__":
     speak("Initializing jarvis.....")
